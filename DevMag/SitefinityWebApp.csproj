@@ -788,6 +788,7 @@
       <DependentUpon>ContentManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mvc\Helpers\WidgetExtensions.cs" />
+    <Compile Include="Mvc\Models\AuthorViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
