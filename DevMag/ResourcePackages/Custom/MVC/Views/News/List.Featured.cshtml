@@ -1,0 +1,31 @@
+@model Telerik.Sitefinity.Frontend.Mvc.Models.ContentListViewModel
+
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+@using Telerik.Sitefinity.Modules.Pages;
+@using Telerik.Sitefinity.Web.DataResolving;
+@using SitefinityWebApp.Mvc.Helpers;
+
+@foreach (var item in Model.Items)
+{
+    var navigateUrl = HyperLinkHelpers.GetDetailPageUrl(item, ViewBag.DetailsPageId, ViewBag.OpenInSamePage);
+    <!--  Default 8+4 Feather widget -->
+    <div class="row">
+        <div class="col-md-7">
+            <a href="#"><img alt="articleFeatured" src="@Html.RenderImage(item.RelatedItem("Thumbnail").GetDataItem<Telerik.Sitefinity.Libraries.Model.Image>())" height="354px" width="650px" /></a>
+        </div>
+        <div class="col-md-5">
+            <h4>Featured</h4>
+            <h1><a href="@navigateUrl">@item.Fields.Title</a></h1>
+            <div class="media Author--small">
+                @*<a class="pull-left" href="#">
+                        <img class="media-object img-circle" src="ResourcePackages/Bootstrap/images/authors/joe.jpg" alt="joe-small" height="40" width="40">
+                    </a>*@
+                <div class="media-body">
+                    <h6 class="media-heading"><a href="#">@DataResolver.Resolve(item.DataItem, "Author", null)</a></h6>
+                    <span class="date-created">on @item.GetDateTime("PublicationDate", "MMM d, yyyy")</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
