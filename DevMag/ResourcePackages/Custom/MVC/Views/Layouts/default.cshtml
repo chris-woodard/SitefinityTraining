@@ -18,6 +18,10 @@
 
 <body>
     @Html.Section("top")
+
+    <nav class="navbar navbar-default js-nav-fixed" role="navigation">
+        @Html.SfPlaceHolder("Navigation")
+    </nav>
         
     <div class="sfPublicWrapper" id="PublicWrapper">		
         @Html.SfPlaceHolder("Contentplaceholder1")		
