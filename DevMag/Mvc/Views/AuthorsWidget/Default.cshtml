@@ -1,0 +1,21 @@
+@model SitefinityWebApp.Mvc.Models.AuthorsWidgetModel
+
+@foreach (var author in Model.Authors)
+{
+    <div class="col-md-3">
+        <div class="text-center">
+            @if (Model.AvatarEnabled)
+            {
+                <a href="#">
+                    <img class="img-circle" src="@author.Avatar" height="128" width="128" />
+                </a>
+            }
+            else
+            {
+                <strong>DISABLED</strong>
+            }
+            <h3><a href="#">@author.Name</a></h3>
+            <p>@author.JobTitle</p>
+        </div>
+    </div>
+}
